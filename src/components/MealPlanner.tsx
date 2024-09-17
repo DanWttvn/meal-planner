@@ -13,6 +13,7 @@ import {
 import { meals } from "@/data/mealData";
 import { Pencil, Check, Download } from "lucide-react";
 import html2canvas from "html2canvas";
+import clsx from "clsx";
 
 const WEEK_DAYS = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
 
@@ -82,19 +83,25 @@ function MealPlanner() {
           <Table className="mt-4" ref={tableRef}>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[100px]">Día</TableHead>
-                <TableHead className="w-[calc(50%-50px)]">Comida</TableHead>
-                <TableHead className="w-[calc(50%-50px)]">Cena</TableHead>
+                <TableHead className="w-[100px] md:w-[250px]">Día</TableHead>
+                <TableHead className="w-[calc(50%-50px)] md:w-[calc(50%-125px)]">
+                  Comida
+                </TableHead>
+                <TableHead className="w-[calc(50%-50px)] md:w-[calc(50%-125px)]">
+                  Cena
+                </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {WEEK_DAYS.map((day, dayIndex) => (
                 <TableRow key={day}>
-                  <TableCell className="w-[100px] align-top">{day}</TableCell>
+                  <TableCell className="w-[100px] md:w-[250px] align-top">
+                    {day}
+                  </TableCell>
                   {[0, 1].map((mealIndex) => (
                     <TableCell
                       key={mealIndex}
-                      className="w-[calc(50%-50px)] align-top flex-shrink-0"
+                      className="w-[calc(50%-50px)] md:w-[calc(50%-125px)] align-top flex-shrink-0"
                     >
                       <div className="flex items-start justify-between">
                         <span className="flex-grow">
@@ -120,7 +127,10 @@ function MealPlanner() {
           <Button
             onClick={downloadImage}
             variant="default"
-            className="fixed bottom-4 right-4 z-10 rounded-full p-3"
+            className={clsx(
+              "fixed bottom-4 right-4 z-10 rounded-full p-3",
+              "md:relative md:inset-auto md:ml-auto md:mt-6 md:mr-2"
+            )}
             size="icon"
           >
             <Download />
