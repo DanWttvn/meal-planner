@@ -15,6 +15,21 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Pacific Blue Meal Planner",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: { url: "/apple-touch-icon.png", type: "image/png" },
+    other: [
+      {
+        url: "/android-chrome-144x144.png",
+        sizes: "144x144",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
